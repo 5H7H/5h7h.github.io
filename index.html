@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/index_style.css">
     <title>5H7H's Blog</title>
     <style>
         body{
@@ -11,13 +12,6 @@
             text-align: center;
             margin: 0;
             padding: 0;
-        }
-        .navi_bar {
-            background-color: #eeeeee;
-            margin: 0%;
-            padding: 1rem;
-            padding-left: 3%;
-            text-align: left;
         }
         .blog_list_container {
             background-color: white;
@@ -36,13 +30,13 @@
             margin-bottom: 20px;
         }
         .post-summary a {
-            text-decoration: none; /* 去掉链接的下划线 */
-            color: #0066cc; /* 设置标题为蓝色 */
+            text-decoration: none;
+            color: #0066cc; 
             font-size: 20px;
             font-weight: bold;
         }
         .post-summary a:hover {
-            color: #ff6600; /* 鼠标放上去变色，增加趣味性 */
+            color: #ff6600; 
         }
         .date {
             color: #888;
@@ -51,13 +45,23 @@
     </style>
 </head>
 <body>
-<h1 class = "navi_bar">5H7H's Blog</h1>
+    <!-- 导航栏 !-->
+    <nav class="navbar">
+        <div class="nav-logo">
+            <a href="/index.html">5H7H's Blog</a>
+        </div>
+        <div class="nav-about">
+            <a href="/about.html">about</a>
+        </div>
+    </nav>
+
     <div class="blog_list_container">
         <div class="post-summary">
             <a href="./post/2026/05/first_post.html">我的第一篇博客：一切的开始</a><br>
-            <span class="date">2026年5月11日</span>
-            <p>今天我决定把网站改成博客。不用框架，不搞复杂架构，就用最原始的 HTML 来搭积木...</p>
+            <span class="date">2026年5月15日</span>
+            <p>你好，世界！</p>
         </div>
     </div>
 </body>
+<script src="./JS/index_script.json"></script>
 </html>
