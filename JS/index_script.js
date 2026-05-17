@@ -15,6 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 blogListContainer.appendChild(postSummary);
             });
+            
+            // 数据插入完毕后，执行盘古之白，自动在中英文之间加空格
+            if (typeof pangu !== 'undefined') {
+                pangu.spacingElementById('blog-list');
+            }
         })
         .catch(error => console.error('Error loading posts:', error));
 });

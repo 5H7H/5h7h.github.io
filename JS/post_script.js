@@ -12,6 +12,11 @@ if(filePath) {
         })
         .then(text => {
             document.getElementById('article-content').innerHTML = marked.parse(text);
+            
+            // Markdown 解析完毕后，执行盘古之白，为正文排版（中英文加空格）
+            if (typeof pangu !== 'undefined') {
+                pangu.spacingElementById('article-content');
+            }
         })
         .catch(error => {
             document.getElementById('article-content').innerHTML = "<p>抱歉，文章内容加载失败。</p>";
