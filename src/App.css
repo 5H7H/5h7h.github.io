@@ -1,0 +1,30 @@
+
+.blog_list_container {
+    background-color: white;
+    width: 60%;
+    margin: 2% 2%;
+    padding: 50px;
+    padding-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.post-summary {    
+    border-bottom: 1px solid #d1cece;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+.post-summary a {
+    text-decoration: none;
+    color: #0066cc; 
+    font-size: x-large;
+    font-weight: 550;
+}
+.post-summary a:hover {
+    color: #074fb3; 
+}
+.date {
+    color: #888;
+    font-size: 12px;
+}
