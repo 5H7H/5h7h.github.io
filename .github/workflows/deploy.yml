@@ -1,0 +1,61 @@
+name: Deploy to GitHub Pages
+
+# 触发条件：当推送到 main 或 master 分支时触发
+on:
+  push:
+    branches: ["main", "master"]
+  # 允许在 GitHub 网页上进行手动触发部署
+  workflow_dispatch:
+
+# 权限设置：允许读取仓库内容并推送到 GitHub Pages 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 并发控制：如果同时有多个推送，取消正在进行的旧部署，只部署最新的
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 安装 pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      # 设定 Node.js 环境
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build Project
+        run: pnpm run build
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Vite 默认的打包输出目录是 dist
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
