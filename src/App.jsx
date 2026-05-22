@@ -1,9 +1,12 @@
 // src/App.jsx
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import './common.css';
-import './post_style.css';
-import './App.css'; // 引入我们刚刚加入的列表样式
+
+// 样式
+import './styles/common.css';
+import './styles/post_style.css';
+import './styles/App.css'; // 引入我们刚刚加入的列表样式
+
 import BlogList from './components/BlogList';
 import Post from './components/Post'; // 引入新的文章组件
 

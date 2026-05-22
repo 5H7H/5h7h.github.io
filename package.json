@@ -2,9 +2,13 @@
   "name": "my-protfolio-app",
   "private": true,
   "version": "0.0.0",
+  "packageManager": "pnpm@11.1.2",
   "type": "module",
   "scripts": {
+    "posts": "node scripts/generatePosts.js",
+    "predev": "node scripts/generatePosts.js",
     "dev": "vite",
+    "prebuild": "node scripts/generatePosts.js",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
